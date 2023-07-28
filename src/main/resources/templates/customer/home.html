@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<body>
+hone page
+
+<!--<p th:text="${    mess}"> </p>-->
+<!--<p th:if="${cus.getCusName() eq 'duy'}" th:text="${ 'Ho Ten : ' +   cus.cusName}"> </p>-->
+<!--<p th:text="${  'aid : ' +  cus.aId}"> </p>-->
+<!--<p th:if="${cus.phone != null  }" th:text="${'sdt : '+cus.phone}"> </p>-->
+
+<!--<p th:if="${cus.cusId > 0}" th:text="${cus.cusId}"> </p>-->
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>phone </th>
+        <th>aid</th>
+        <th>birthday</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr th:each="e : ${list}">
+        <td th:text="${e.cusId}"></td>
+        <td th:text="${e.getCusName()}"></td>
+        <td th:text="${e.phone}"></td>
+        <td th:text="${e.aId}"></td>
+        <td th:text="${e.birthDay}"></td>
+        <td><a th:href="@{/customer/update/{cusId}(cusId=${e.cusId})}"> update </a></td>
+        <td><a th:href="@{/customer/del/{cusId}(cusId=${e.cusId})}"> delete </a></td>
+    </tr>
+    </tbody>
+<a href="/customer/create">Create</a>
+
+
+</table>
+
+</body>
+</html>

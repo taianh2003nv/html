@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .d1 {
+    width: 640px;
+    height: 400px;
+    margin-left: 460px;
+    margin-top: 100px;
+    border: 1px solid red;
+    background-color: whitesmoke;
+  }
+
+  .c1 {
+    margin-left: 12px
+  }
+  body{
+    background-color: #0dcaf0;
+  }
+</style>
+
+<body>
+<div class="d1">
+  <h1 style="text-align: center">Dang Ky</h1>
+  <div style="margin-left: 180px;margin-top: 50px;">
+
+    <form action="/employee/save" method="post" th:object="${employee}">
+      <input th:field="*{eid}" type="text"  hidden>
+      <label>Full Name : </label>
+      <input th:field="*{ename}" type="text" placeholder="Họ tên"><br><br>
+      <label>Birthday : </label>
+      <input th:field="*{birthday}" id="birthday" class="c1" type="date"><br><br>
+      <label>Address : </label>
+      <select th:field="*{aid}" class="c1">
+        <option value="1">HN</option>
+        <option value="2">Vp</option>
+        <option value="3">DN</option>
+      </select><br><br>
+      <button type="submit" style="margin-left: 100px">Dang ky</button>
+    </form>
+  </div>
+</div>
+<script>
+  // document.getElementById('birthday').valueAsDate = new Date('06-0  1-1994');
+
+</script>
+</body>
+</html>
